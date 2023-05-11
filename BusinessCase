@@ -1,0 +1,23 @@
+Fluxo de Venda de Caminhão:
+
+O processo de cadastrar possíveis clientes pode ser substituído pela criação de registros no objeto "Possíveis Clientes" diretamente no Salesforce.
+Ao criar uma proposta, você pode criar um registro no objeto "Proposta" e relacionar o cliente e o caminhão desejados.
+Utilize a lógica de fórmula ou um acionador para calcular automaticamente o campo "Total Valor Proposta" com base no valor de venda e na quantidade.
+A quantidade reservada pode ser gerenciada automaticamente, subtraindo a quantidade da proposta do estoque do caminhão.
+Quando uma proposta for fechada, crie um registro no objeto "Contrato" com as informações relevantes, como o cliente, o número da proposta e a data de fechamento do contrato.
+Crie um registro no objeto "Garantia" com base no contrato, cliente, caminhão e outras informações necessárias. Você pode calcular automaticamente a data de vencimento com base na lógica fornecida.
+Defina o status inicial da garantia como "Assegurado".
+
+Fluxo de revogação da garantia:
+
+Crie uma automação (por exemplo, fluxo de trabalho ou acionador) para identificar as garantias que passaram da data de vencimento. Essa automação pode atualizar automaticamente o campo de status da garantia para "Não Assegurado".
+
+Fluxo de renovação de garantia:
+
+Ao renovar uma garantia, crie um novo registro no objeto "Proposta" do tipo "Renovação" e relacione-o ao cliente e à garantia existente.
+Atualize manualmente a nova data de vencimento com base na soma dos dias de renovação.
+
+Melhorias sugeridas:
+
+Automatize as tarefas manuais do processo, como o cálculo do valor total da proposta, a atualização do estoque de caminhões e a criação de registros nos objetos relevantes. Você pode usar acionadores, fluxos de trabalho, Process Builder ou Apex para automatizar essas tarefas.
+Crie um relatório ou um painel no Salesforce para visualizar as garantias que vencerão no ano atual. Você pode utilizar filtros e agrupamentos para identificar as garantias que estão próximas do vencimento e notificar a equipe de vendas para oferecer um novo serviço de garantia.
